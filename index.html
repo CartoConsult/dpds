@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/fav.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/index.css" media="screen">
+    <style>
+        @import url(node_modules/cesium/Build/Cesium/Widgets/widgets.css);
+    </style>
+    <title> Carto3D </title>
+</head>
+
+<body>
+
+    <div id="map-container">
+
+        <div class='sidebar pad2'>
+            <div class="sidebar-tabs">
+                <ul class="side-tablist" role="tablist">
+                    <li class="side-button glyphicon glyphicon-home" id="home-button"> </li> <!-- Home -->
+                    <li class="side-button glyphicon glyphicon-th-large" id="imagery-button"></li> <!-- Change imagery layers -->
+                    <li class="side-button glyphicon glyphicon-file" id="data-button"></li> <!-- Data layers -->
+                    <li class="side-button glyphicon glyphicon-align-justify" id="info-button"></li> <!--  Meta data -->
+                    <li class="side-button glyphicon glyphicon-log-out" id="logout-button"></li> <!--  Logout -->
+                </ul>
+            </div>
+
+            <div class="sidebar-content custom-scroll">
+                <div class="sidebar-pane" id="home">
+                    <h3 class="side-headings"> Carto3D Demo </h3>
+                    <hr>
+                    <hr>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempus sapien lectus,
+                        sed commodo lorem fringilla id. Vivamus id ante ante. Proin porttitor nunc lectus, 
+                        vitae eleifend augue pellentesque nec. Aliquam erat volutpat. Pellentesque quis faci
+                        lisis nisi, vitae congue turpis. Sed dictum semper purus, sed molestie lectus tincidunt vel
+                    </p>
+
+                    <p>
+                        Sed pulvinar maximus velit imperdiet dapibus. Donec orci eros, hendrerit quis enim vitae, 
+                        bibendum ultricies quam. Nam diam metus, iaculis vitae hendrerit et, pharetra eu nunc.
+                    </p>
+
+                    <p>
+                        Donec varius mi molestie accumsan viverra. Nunc tristique vitae justo quis bibendum.
+                        In eget ipsum sed sapien hendrerit commodo ut ut nisl. Phasellus eget dapibus nu
+                        lla. Proin nec felis libero.
+                    </p>
+                </div>
+
+                <div class="sidebar-pane" id="imagery">
+                    <h3 class="side-headings"> Base Imagery Layer </h3>
+                    <hr>
+                    <hr>
+
+                    <img class="imagery-thumb" id="imagery-bing" src="images/imagery-bing.png" alt="Bing" />
+                    <img class="imagery-thumb" id="imagery-arc" src="images/imagery-arcgis.png" alt="ArcGIS" />
+                    <img class="imagery-thumb" id="imagery-osm" src="images/imagery-osm.png" alt="osm" />
+
+                </div>
+
+              <div class="sidebar-pane" id="data-layers">
+                  <h3 class="side-headings"> Data Layers </h3>
+                  <hr>
+                  <hr>
+              </div>
+
+
+                <div class="sidebar-pane" id="info">
+                    <h3 class="side-headings"> Metadata </h3>
+                    <hr>
+                    <hr>
+                    <p> N/A </p>
+                    <div id="div-details"></div>
+                </div>
+
+   
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+
+        <div id="cesiumContainer"></div>
+
+    </div>
+
+
+
+    <div class="coord-legend" id="coords"> Longtitude: <br /> Latitude: </div>
+
+    <!-- Scripts -->
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="scripts/js/turf.min.js"></script>
+    <script src="scripts/js/plotly.min.js"></script>
+    <script src="scripts/js/Calculations.js"></script>
+    <script src="scripts/js/require.js"></script>
+    <script src="node_modules/cesium/Build/Cesium/Cesium.js"></script>
+    <script src="scripts/viewerCesiumNavigationMixin.min.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>

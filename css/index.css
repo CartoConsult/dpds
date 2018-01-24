@@ -1,0 +1,247 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #bbb;
+    border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #444;
+    border-radius: 10px;
+}
+
+.cesium-viewer-toolbar {
+    z-index: 2 !important;
+}
+
+#top-bar {
+    width: 100%;
+    height: 53px;
+    background-color: #444;
+    opacity: 0.9;
+    color: white;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-bottom: solid 3px #1589FF;
+    z-index: 1;
+}
+
+    #top-bar h2 {
+        padding: 0;
+        margin: 0;
+        font-size: x-large;
+    }
+
+#map-container {
+    display: flex;
+    height: 100%;
+}
+
+#cesiumContainer {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+}
+
+.sidebar {
+    -webkit-transition: width 1s;
+    -webkit-transform: translateZ(0);
+    transition: width 1s;
+    left: 0;
+    width: 50px;
+    background-color: white;
+    color: #444;
+    opacity: 0.9;
+    overflow: hidden;
+    height: 100%;
+    z-index: 1;
+    position: relative;
+}
+
+.open-side {
+    width: 350px;
+}
+
+.side-tablist .glyphicon {
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.tooles {
+    font-size: large;
+    list-style-type: none;
+    cursor: pointer;
+    color: #666;
+}
+
+#tool-details {
+    margin-top: 60px;
+    min-height: 200px;
+    height: auto;
+    width: 98%;
+    border: 1px white solid;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.sidebar-tabs {
+    height: 100%;
+    background-color: #444;
+    width: 50px;
+    border-right: solid 3px #1589FF;
+    text-align: center;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.side-button {
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    margin-top: -1px;
+}
+
+.side-tablist {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-content {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    font-size: small;
+    margin-left: 50px;
+    overflow: auto;
+    padding-right: 5px;
+    padding-left: 5px;
+    /*border-right: solid 3px #1589FF; */
+}
+
+.sidebar-pane {
+    display: none;
+}
+
+.sidebar-pane-display {
+    display: block;
+}
+
+.active {
+    border: 1px solid #1589FF;
+    color: white;
+}
+
+.sidebar-tabs > li:hover, .sidebar-tabs > ul > li:hover {
+    background-color: #1589FF;
+}
+
+.side-headings {
+    text-align: center;
+    width: 250px;
+}
+
+.measuring-tools {
+    list-style-type: none;
+    color: white;
+}
+
+#info p, #info p, #info p {
+    font-size: small;
+}
+
+.pad2 {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+hr {
+    background-color: #1589FF;
+}
+
+#angles {
+    position: absolute;
+    bottom: 40px;
+    left: 40vw;
+    height: 100px;
+    width: auto;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.angle {
+    height: 110px;
+    width: 100px;
+    background-color: white;
+    margin: 5px;
+    padding-top: 12px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.angle-img {
+    height: 70px;
+    display: block;
+    margin: auto;
+    width: auto;
+}
+
+.navigation-controls {
+    background-color: #333;
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+.distance-legend {
+    position: absolute;
+    bottom: 100px !important;
+    right: 5px;
+    width: 185px;
+    height: 35px;
+    border-radius: 12px;
+}
+
+.coord-legend {
+    position: fixed;
+    bottom: 150px;
+    right: 5px;
+    width: 200px;
+    background-color: rgba(47,53,60,0.8);
+    color: white;
+    height: 60px;
+    border-radius: 12px;
+    padding: 0 10px;
+    line-height: 32px;
+    border: 0.3px solid white;
+}
+
+.coord-align {
+    margin-left: 15px;
+}
+
+.imagery-thumb {
+    width: 240px;
+    height: 200px;
+    margin-top: 5px;
+    border: 1px solid white;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
