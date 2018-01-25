@@ -6,46 +6,63 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Carto3D Login </title>
+    <title>Carto3D Login </title>
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link href="css/login.css" rel="stylesheet" />
+    <script src="node_modules/jquery/dist/jquery.js"></script>
 
 </head>
 <body class="login-body">
+    <nav>
+        <ul>
+            <li><a href="#">Blog </a></li>
+            <li><a href="#">Developers </a></li>
+            <li><a id="show-login" href="#">Login </a></li>
+            <li><a class="contact-border" href="#">Contact Us </a></li>
+        </ul>
+    </nav>
 
-    <form runat="server">
-        <div class="container">
-            <div class="form-topper">
-                <div class="form-title"> Carto3D Portal </div>
+    <div class="carto-info">
+        <img class="splashlogo" src="images/logo.png" alt="Logo" draggable="false" />
+        <p>The #1 3D GIS mapping platform </p>
+        <p>for Land & Property Development Professionals </p>
+
+    </div>
+
+    <div class="login-form">
+        <form runat="server">
+            <div class="container">
+
+                <div class="login-container">
+
+                    <div class="logo-container">
+                        <img class="logo" src="images/logo.png" alt="Logo" width="100%" draggable="false" />
+                    </div>
+
+                    <div class="form-group input-group">
+                        <input id="txtUserName" class="form-control" placeholder="Username" runat="server" />
+                    </div>
+
+                    <div class="form-group input-group">
+                        <input class="form-control" id="txtUserPass" type="password" placeholder="Password" runat="server">
+                    </div>
+
+                    <div class="form-group">
+                        <asp:Button type="submit" runat="server" CssClass="btn-login" OnClick="btnLogin_Click" Text="Login" />
+                    </div>
+
+                    <div class="form-group">
+                    <p>powered by <a href="http://www.thecartogroup.com" target="_blank">The Carto Group </a></p>
+                    </div>
+
+                </div>
             </div>
-            <div class="login-form">
-                <div class="logo-container">
-                    <img class="logo" src="images/Carto3DLogo.svg" alt="Logo" width="100%" draggable="false" />
-                </div>
-                <div class="form-group input-group">
-                    <span class="input-group-addon"><span class="fa fa-user"></span></span>
-                    <input id="txtUserName" class="form-control" placeholder="Username" runat="server" />
-                </div>
-                <div class="form-group input-group">
-                    <span class="input-group-addon"><span class="fa fa-lock"></span></span>
-                    <input class="form-control" id="txtUserPass" type="password" placeholder="Password" runat="server">
-                </div>
-                <div class="form-group">
-                    <asp:Button type="submit" runat="server" CssClass="btn-login" OnClick="btnLogin_Click" Text="Login" />
-                </div>
-            </div>
-            <div class="version-number" style="min-width: max-content;">Version 1.0.0 </div>
-        </div>
+        </form>
+    </div>
 
-        <div class="form-footer">
-                <img class="footer-logo" src="images/carto-logo.png" alt="CartoConsult Logo" draggable="false" />
-                <img class="footer-logo" src="images/dpds-logo.png" alt="DPDS Logo" draggable="false" />
-        </div>
-    </form>
 
-    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/tether/dist/js/tether.min.js"></script>
+    <script src="scripts/login.js"></script>
 </body>
 </html>

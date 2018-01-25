@@ -84,30 +84,13 @@
     padding: 5px;
 }
 
-.tooles {
-    font-size: large;
-    list-style-type: none;
-    cursor: pointer;
-    color: #666;
-}
-
-#tool-details {
-    margin-top: 60px;
-    min-height: 200px;
-    height: auto;
-    width: 98%;
-    border: 1px white solid;
-    padding: 10px;
-    margin-bottom: 5px;
-}
-
 .sidebar-tabs {
     height: 100%;
     background-color: #444;
     width: 50px;
-    border-right: solid 3px #1589FF;
+    border-right: solid 3px #c1d0eb;
     text-align: center;
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
 }
 
@@ -144,12 +127,12 @@
 }
 
 .active {
-    border: 1px solid #1589FF;
+    border: 1px solid #c1d0eb;
     color: white;
 }
 
 .sidebar-tabs > li:hover, .sidebar-tabs > ul > li:hover {
-    background-color: #1589FF;
+    background-color: #c1d0eb;
 }
 
 .side-headings {
