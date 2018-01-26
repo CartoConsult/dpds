@@ -17,10 +17,11 @@
 <body class="login-body">
     <nav>
         <ul>
-            <li><a href="#">Blog </a></li>
-            <li><a href="#">Developers </a></li>
+            <li><a href="#" onClick="window.location.reload()"> Home </a></li>
+            <li><a href="http://www.thecartogroup.com/blog/" target="_blank">Blog </a></li>
+            <li><a href="http://cartoconsult.co.uk/about" target="_blank"> Team </a></li>
             <li><a id="show-login" href="#">Login </a></li>
-            <li><a class="contact-border" href="#">Contact Us </a></li>
+            <li><a class="contact-border" href="mailto:info@cartoconsult.co.uk?Subject=Subject">Contact Us </a></li>
         </ul>
     </nav>
 

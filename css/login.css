@@ -47,7 +47,7 @@ nav ul {
 nav ul li {
     flex-basis: 150px;
     font-size: 25px;
-    text-align: center;
+    text-align: left;
 }
 
 nav a, nav a:visited, nav a:active, nav a:focus {
@@ -75,14 +75,14 @@ nav a:hover:not(.contact-border) {
     color: #062665;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
     nav {
-        margin-left: 10vw;
+        margin-left: 7vw;
         margin-right: 10px;
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 800px) {
     nav {
         margin-left: 0;
         margin-right: 20px;
