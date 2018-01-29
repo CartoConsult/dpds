@@ -6,7 +6,19 @@ var imageryOSM;
 var terrainDefault;
 var liveLat;
 var liveLong;
-var toolActive = false;
+var dataCollection = {};
+var layerColours = {
+    ALC: "",
+    Ancient_Woodland: "",
+    AONB: "",
+    Battlefields: "",
+    Country_Parks: "",
+    Flood_Zone_2: "",
+    Flood_Zone_3: "",
+    Listed_Buildings: "",
+    Local_Nature_Reserves: "",
+};
+
 
 (function () {
     //'use strict';
@@ -73,31 +85,31 @@ var toolActive = false;
     // ----- Historic England Data ------------------------------------------------------------------------------------------------------------------- //
 
     
-    viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Historic_Swindon/Battlefields_Swindon_WGS84.geojson', {   
-        stroke: Cesium.Color.WHITE,
-        fill: Cesium.Color.fromBytes(139, 69, 19, 150),
-        strokeWidth: 2,
-        clampToGround: true
-    }));
+    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Historic_Swindon/Battlefields_Swindon_WGS84.geojson', {   
+    //    stroke: Cesium.Color.WHITE,
+    //    fill: Cesium.Color.fromBytes(139, 69, 19, 150),
+    //    strokeWidth: 3,
+    //    clampToGround: true
+    //}));
 
    
-    viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Historic_Swindon/ScheduledMonuments_Swindon_WGS84.geojson', { 
-        stroke: Cesium.Color.WHITE,
-        fill: Cesium.Color.fromBytes(102, 51, 153, 150),
-        strokeWidth: 10,
-        clampToGround: true
-    }));
+    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Historic_Swindon/ScheduledMonuments_Swindon_WGS84.geojson', { 
+    //    stroke: Cesium.Color.WHITE,
+    //    fill: Cesium.Color.fromBytes(102, 51, 153, 150),
+    //    strokeWidth: 3,
+    //    clampToGround: true
+    //}));
 
      
-    viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Historic_Swindon/Registered_Parks_and_Gardens_Swindon_WGS84.geojson', { Green
-        stroke: Cesium.Color.YELLOWGREEN,
-        fill: 
-        strokeWidth: 5,
-        clampToGround: true
-    }));
+    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Historic_Swindon/Registered_Parks_and_Gardens_Swindon_WGS84.geojson', { 
+    //    stroke: Cesium.Color.YELLOWGREEN,
+    //    fill: Cesium.Color.fromBytes(45, 161, 41, 150),
+    //    strokeWidth: 3,
+    //    clampToGround: true
+    //}));
 
      
-    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Historic_Swindon/LB_Swindon_WGS84.geojson', { orange
+    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Historic_Swindon/LB_Swindon_WGS84.geojson', { 
     //    markerColor : Cesium.Color.ORANGE,
     //    strokeWidth: 3,
     //    markerSymbol: '',
@@ -106,85 +118,172 @@ var toolActive = false;
 
     // ----- Natural England Data ------------------------------------------------------------------------------------------------------------------------------- //
 
-    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/ALC.geojson', { Color by Grade
-    //    stroke: Cesium.Color.YELLOWGREEN,
-    //    fill: Cesium.Color.GREEN,
-    //    strokeWidth: 10,
+    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/ALC.geojson', { 
+    //    stroke: Cesium.Color.WHITE,
+    //    fill: Cesium.Color.fromRandom(),
+    //    strokeWidth: 3,
     //    clampToGround: true
     //}));
 
-    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/Ancient_Woodland_England.geojson', { White green hatching / Light Green
-    //    stroke: Cesium.Color.YELLOWGREEN,
-    //    fill: Cesium.Color.GREEN,
-    //    strokeWidth: 10,
+    //var dataSource = new Cesium.GeoJsonDataSource();
+    //dataSource.load('data/Natural_Swindon/ALC.geojson', {
+    //}).then(function (data) {
+    //    console.log(data.entities.values);
+    //    $.each(data.entities.values, function (i, feature) {
+    //        console.log(feature.properties.ALC_GRADE);
+    //    });
+    //});
+
+    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/Ancient_Woodland_England.geojson', {
+    //    stroke: Cesium.Color.WHITE,
+    //    fill: Cesium.Color.fromBytes(161, 243, 158, 150),
+    //    strokeWidth: 3,
     //    clampToGround: true
     //}));
 
-    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/AONB.geojson', { 
-    //    stroke: Cesium.Color.YELLOWGREEN,
+    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/AONB.geojson', { Color by field
+    //    stroke: Cesium.Color.WHITE,
     //    fill: Cesium.Color.fromBytes(235, 255, 255, 150),
-    //    strokeWidth: 10,
+    //    strokeWidth: 3,
     //    clampToGround: true
     //}));
 
-    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/Country_Parks_England.geojson', { Orange
-    //    stroke: Cesium.Color.YELLOWGREEN,
-    //    fill: Cesium.Color.GREEN,
-    //    strokeWidth: 10,
+    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/Country_Parks_England.geojson', { 
+    //    stroke: Cesium.Color.WHITE,
+    //    fill: Cesium.Color.fromBytes(253, 193, 52, 150),
+    //    strokeWidth: 3,
     //    clampToGround: true
     //}));
 
-    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/Local_Nature_Reserves.geojson', { Darkgreen
-    //    stroke: Cesium.Color.YELLOWGREEN,
-    //    fill: Cesium.Color.GREEN,
-    //    strokeWidth: 10,
+    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/Local_Nature_Reserves.geojson', { 
+    //    stroke: Cesium.Color.WHITE,
+    //    fill: Cesium.Color.fromBytes(27, 97, 5, 150),
+    //    strokeWidth: 3,
     //    clampToGround: true
     //}));
 
-    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/National_Character_Areas.geojson', { /random colours
-    //    stroke: Cesium.Color.YELLOWGREEN,
-    //    fill: Cesium.Color.GREEN,
-    //    strokeWidth: 10,
+    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/National_Character_Areas.geojson', { random color
+    //    stroke: Cesium.Color.WHITE,
+    //    fill: Cesium.Color.BLUE,
+    //    strokeWidth: 3,
     //    clampToGround: true
     //}));
 
-    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/Sites_of_Special_Scientific_Interest.geojson', { hotpink
-    //    stroke: Cesium.Color.YELLOWGREEN,
-    //    fill: Cesium.Color.GREEN,
-    //    strokeWidth: 10,
+    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/Sites_of_Special_Scientific_Interest.geojson', { 
+    //    stroke: Cesium.Color.WHITE,
+    //    fill: Cesium.Color.fromBytes(255, 105, 180, 150),
+    //    strokeWidth: 3,
     //    clampToGround: true
     //}));
 
-    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/Special_Areas_of_Conservation_England.geojson', { darkblue
-    //    stroke: Cesium.Color.YELLOWGREEN,
-    //    fill: Cesium.Color.GREEN,
-    //    strokeWidth: 10,
+    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Natural_Swindon/Special_Areas_of_Conservation_England.geojson', { 
+    //    stroke: Cesium.Color.WHITE,
+    //    fill: Cesium.Color.fromBytes(0, 67, 144, 150),
+    //    strokeWidth: 3,
     //    clampToGround: true
     //}));
 
     // ----- Environmental Agency England Data ---------------------------------------------------------------------------------------------------------------- //
 
-    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Environmental_Swindon/Flood_Zone_2.geojson', { cyan
+    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Environmental_Swindon/Flood_Zone_2.geojson', { 
     //    stroke: Cesium.Color.WHITE,
-    //    fill: Cesium.Color.LIGHTBLUE,
+    //    fill: Cesium.Color.fromBytes(0, 255, 255, 150),
     //    strokeWidth: 10,
     //    clampToGround: true
     //}));
 
-    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Environmental_Swindon/Flood_Zone_3.geojson', { lightblue
+    //viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/Environmental_Swindon/Flood_Zone_3.geojson', { 
     //    stroke: Cesium.Color.WHITE,
-    //    fill: Cesium.Color.LIGHTBLUE,
+    //    fill: Cesium.Color.fromBytes(173, 216, 230, 150),
     //    strokeWidth: 10,
     //    clampToGround: true
     //}));
 
+    //-----------------------------------------------------------------------------------------------------
 
+
+    // feature click event
+    handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+    handler.setInputAction(function (click) {
+        var pickedObject = viewer.scene.pick(click.position);
+        if (Cesium.defined(pickedObject) && (pickedObject != undefined)) {
+            // console.log(pickedObject.id.properties.OGR_FID.valueOf());
+            console.log(pickedObject.id.properties);
+
+            $('#div-details').empty();
+            $.each(pickedObject.id.properties._propertyNames, function (i, p) {
+                $('#div-details').append('<p class="lead"><strong>' + pickedObject.id.properties._propertyNames[i] + '</strong>: ' + pickedObject.id.properties[pickedObject.id.properties._propertyNames[i]] + '</p>');
+            })
+            openDetails();
+        }
+    }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+    
 
 }());
 
 
+$('.layer-labels').click(function (e) {
+    var layername;
+
+    // getting the label text only (not the checkbox) to get layer name
+    if (e.target.type == "checkbox") {
+        layername = e.target.parentElement.textContent.replace(/ /g, "_")
+    }
+    else {
+        layername = e.target.textContent.replace(/ /g, "_")
+    }
+
+    // add layer if checkbox just got ticked
+    if ($(event.target).is(":checked")) {
+        Cesium.GeoJsonDataSource.load('data/' + layername + '.geojson', {
+            stroke: Cesium.Color.WHITE,
+            fill: Cesium.Color.fromBytes(139, 69, 19, 150),
+            strokeWidth: 3,
+            clampToGround: true
+        }).then(function (source) {
+            dataCollection[layername] = source
+            viewer.dataSources.add(dataCollection[layername]);
+        })
+    }
+
+    // remove layer if tickbox just got unticked
+    else {
+        viewer.dataSources.remove(dataCollection[layername], true);
+    }
+
+});
 
 
+
+
+$('.layer-labels-points').click(function (e) {
+    var layername;
+
+    // getting the label text only (not the checkbox) to get layer name
+    if (e.target.type == "checkbox") {
+        layername = e.target.parentElement.textContent.replace(/ /g, "_")
+    }
+    else {
+        layername = e.target.textContent.replace(/ /g, "_")
+    }
+
+    // add layer if checkbox just got ticked
+    if ($(event.target).is(":checked")) {
+        Cesium.GeoJsonDataSource.load('data/' + layername + '.geojson', {
+            markerColor : Cesium.Color.ORANGE,
+            strokeWidth: 3,
+            markerSymbol: '',
+            markerSize: 24,
+        }).then(function (source) {
+            dataCollection[layername] = source
+            viewer.dataSources.add(dataCollection[layername]);
+        })
+    }
+    // remove layer if tickbox just got unticked
+    else {
+        viewer.dataSources.remove(dataCollection[layername], true);
+    }
+});
 
 $('#imagery-bing').click(function () {
     viewer.imageryLayers.removeAll();
