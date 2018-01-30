@@ -1,7 +1,7 @@
 ﻿.login-body {
     padding: 0;
     margin: 0;
-    font-family: "Open Sans";
+    font-family: "Segoe UI", "Open Sans";
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -29,11 +29,19 @@
 /* Splash Section */
 
 nav {
-    margin-left: 40vw;
-    margin-right: 20px;
-    margin-top: 10px;
     animation: 0.6s 1.4s fadein forwards ease-out;
     opacity: 0;
+    display:flex;
+    justify-content: space-between;
+    padding-right: 0 10px;
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+nav .logo {
+    height: 35px;
+    width: auto;
 }
 
 nav ul {
@@ -45,7 +53,7 @@ nav ul {
 }
 
 nav ul li {
-    flex-basis: 150px;
+    padding-left: 25px;
     font-size: 25px;
     text-align: left;
 }
@@ -99,10 +107,9 @@ nav a:hover:not(.contact-border) {
 }
 
 .carto-info {
-    margin-left: 150px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     opacity: 0;
     animation: 1s 0.3s fadedown forwards ease-out;
 }
@@ -122,19 +129,46 @@ nav a:hover:not(.contact-border) {
 
 .carto-info p {
     color: white;
-    font-size: 2em;
-    margin-left: 13vw; 
+    font-size: 1.5em;
 }
 
-.splashlogo {
-    height: 15vw;
-    width: auto;
+.carto-info h3 {
+    color: white;
+    font-size: 2.2em;
 }
 
 .carto-info-hide {
     opacity: 1;
     margin-top: 100px;
     animation: 1s hideinfo forwards ease-out;
+}
+
+.center-btn {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+}
+
+.info-middle {
+   display: flex;
+   justify-content: flex-start;
+   flex-direction: column;
+   align-items: flex-start;
+   text-align: left;
+}
+#learn {
+    margin-top: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.3em;
+}
+
+#learn:hover {
+    text-decoration: none;
+    background-color: white;
+    color: #062665;
 }
 
 @keyframes hideinfo {
@@ -175,6 +209,15 @@ input:-webkit-autofill {
     height: 75px;
 }
 
+.logo-container {
+    padding: 15px 30px 25px;
+}
+
+.logo-container .logo {
+        display: block;
+        margin: auto;
+    }
+
 #ctl00 {
     overflow: hidden;
     height: 100%;
@@ -207,20 +250,6 @@ input:-webkit-autofill {
 .container div {
     z-index: 1;
 }
-
-.logo-container {
-    padding: 15px 30px 25px;
-}
-
-.logo {
-    display: block;
-    margin: auto;
-}
-
-.login-container {
-    padding: 2px 30px 10px;
-}
-
 
 #1589FF
 .input-group .form-control:focus {
@@ -257,3 +286,49 @@ p a{
         background: #323299;
     }
 
+/* Contact Form */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15px auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    display: flex;
+    flex-direction: column;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mod-head h5 {
+    color: darkblue;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
